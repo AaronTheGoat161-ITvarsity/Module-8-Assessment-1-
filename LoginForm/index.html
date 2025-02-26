@@ -1,0 +1,56 @@
+<!Doctype html>
+<html lang="eng">
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+              <h1>Welcome to the Login Page</h1>
+              <p>Please enter your username and password to log in.</p>
+            </header>
+        
+            <main>
+                <section>
+                    <form id="login-form">
+                        <label for="usernameInput">Username:</label><input type="text" id="usernameInput"/><br/>
+                        <label for="passwordInput">Password:</label><input type="password" id="passwordInput"/><br/>
+                        <p id="message"></p>
+                        <br/><br/>
+                        <a href="#" onclick="verifyUser()">Log in</a>
+                    </form>
+                </section>
+            </main>
+        </div>
+        <script>
+           
+
+           function verifyUser(){
+            var username = document.getElementById("usernameInput").value;
+            var password = document.getElementById("passwordInput").value;
+
+            checkUserCreds(username, password);
+           }
+/**
+ * Validates user credentials against predefined system credentials.
+ *
+ * @param {string} username - The username entered by the user.
+ * @param {string} password - The password entered by the user.
+ * 
+ * Updates the content of the element with id "message" to either a welcome
+ * message if the credentials match, or an error message if they do not.
+ */
+
+
+           function checkUserCreds(username, password){
+            var systemUsername = "Bond";
+            var systemPassword = "007";
+            if(username == systemUsername && password == systemPassword){
+                document.getElementById("message").innerHTML = "Welcome, " + username + ".";
+           } else{
+            document.getElementById("message").innerHTML = "Invalid username or password.";
+           }
+           }
+        </script>
+    </body>
+</html>
